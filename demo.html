@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery Last.fm Profile plugin</title>
+<style type="text/css">
+* { padding: 0; margin: 0; }
+body { font-size: 13px; line-height: 1.5; font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif; width: 768px; margin: 50px auto; }
+h1 { font-size: 200%; font-weight: normal; color: #D01F3C; }
+h2 { font-size: 150%; font-weight: normal; }
+a { text-decoration: none; color: #0187C5; }
+a:hover { text-decoration: underline; }
+
+.lastfm-profile { margin: 50px 0; }
+.lastfm-profile .photo { padding: 1px; border: 1px solid silver; }
+.lastfm-profile a:hover .photo { border-color: gray; }
+.lastfm-profile .playcount { font-size: 11px; color: gray; white-space: nowrap; }
+.lastfm-profile .playcount a { font-weight: normal; color: gray; }
+
+#top-artists li { display: inline-block; line-height: 1.25; width: 130px; margin: 20px 22px 0 0; vertical-align: top; list-style: none; *display: inline; *zoom: 1; }
+#top-artists li .photo { display: block; max-width: 126px; max-height: 126px; margin-bottom: 0.5em; }
+#top-albums li { display: inline-block; width: 68px; margin: 20px 8px 0 0; vertical-align: top; list-style: none; *display: inline; *zoom: 1; }
+#top-albums li .photo { max-width: 64px; max-height: 64px; }
+#top-tracks li { margin: 0.5em 0 0 2em; }
+#recent-tracks li { margin: 0.5em 0 0 2em; }
+#now-playing li { margin: 0.5em 0 0; list-style: none; }
+#now-playing li:before { content: "\266b"; margin-right: 0.25em; }
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script src="jquery.lastfm-profile.js"></script>
+<script type="text/javascript">
+$(function () {
+
+    $('#now-playing').loadLastfmProfile();
+
+    $('#top-artists').loadLastfmProfile();
+
+    $('#top-albums').loadLastfmProfile();
+
+    $('#top-tracks').loadLastfmProfile({
+        user: 'terkeljp',
+        method: 'TopTracks',
+        image: false,
+        contentBefore: '<h2>This Week&#8217;s Top 10 Tracks</h2>'
+    });
+
+    $('#recent-tracks').loadLastfmProfile({
+        image: false,
+        playcount: false,
+        contentBefore: '<h2>Recently Listened Tracks</h2>'
+    });
+
+});
+</script>
+</head>
+<body>
+
+<h1>jQuery Last.fm Profile plugin</h1>
+
+<div class="lastfm-profile"
+    id="now-playing"
+    data-lastfm-user="terkeljp"
+    data-lastfm-method="NowPlaying"
+    data-lastfm-image="false"
+    data-lastfm-content-before="&lt;h2&gt;Now Listning&lt;/h2&gt;"></div>
+
+<div class="lastfm-profile"
+    id="recent-tracks"
+    data-lastfm-user="terkeljp"
+    data-lastfm-method="RecentTracks"
+    data-lastfm-limit="5"></div>
+
+<div class="lastfm-profile"
+    id="top-artists"
+    data-lastfm-user="terkeljp"
+    data-lastfm-method="TopArtists"
+    data-lastfm-period="overall"
+    data-lastfm-limit="5"
+    data-lastfm-image-size="large"
+    data-lastfm-content-before="&lt;h2&gt;My All-time Favourite Artists&lt;/h2&gt;"></div>
+
+<div class="lastfm-profile"
+    id="top-albums"
+    data-lastfm-user="terkeljp"
+    data-lastfm-text="false"
+    data-lastfm-playcount="false"
+    data-lastfm-content-before="&lt;h2&gt;This Week&#8217;s Top 10 Albums&lt;/h2&gt;"></div>
+
+<div class="lastfm-profile"
+    id="top-tracks"></div>
+
+<p>&#169; 2011 <a href="http://terkel.jp/">Takeru Suzuki</a>, licensed under a <a href="http://creativecommons.org/licenses/by/2.1/jp/" rel="license">Creative Commons Attribution 2.1 Japan</a>.</p>
+
+</body>
+</html>
