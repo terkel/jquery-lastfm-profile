@@ -42,13 +42,26 @@
                 period:  opts.period,
                 limit:   opts.limit
             }, function (data) {
-                var items =
-                        (opts.method === 'TopAlbums')?    data.topalbums.album:
-                        (opts.method === 'TopArtists')?   data.topartists.artist:
-                        (opts.method === 'TopTracks')?    data.toptracks.track:
-                        (opts.method === 'RecentTracks')? data.recenttracks.track:
-                        (opts.method === 'NowPlaying')?   data.recenttracks.track:
-                        '',
+                var items = function () {
+                        switch (opts.method) {
+                            case 'TopAlbums':
+                                return data.topalbums.album;
+                                break;
+                            case 'TopArtists':
+                                return data.topartists.artist;
+                                break;
+                            case 'TopTracks':
+                                return data.toptracks.track;
+                                break;
+                            case 'RecentTracks':
+                            case 'NowPlaying':
+                                return data.recenttracks.track;
+                                break;
+                            default:
+                                return '';
+                                break;
+                        }
+                    }(),
                     html = [],
                     h = -1,
                     nowPlaying = false;
