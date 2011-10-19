@@ -23,7 +23,7 @@
                     text:           $this.data('lastfm-text'),
                     playcount:      $this.data('lastfm-playcount'),
                     loadingMessage: $this.data('lastfm-loading-message'),
-                    errorMessage:   $this.data('twitter-error-message'),
+                    errorMessage:   $this.data('lastfm-error-message'),
                     contentBefore:  $this.data('lastfm-content-before'),
                     contentAfter:   $this.data('lastfm-content-after')
                 },
