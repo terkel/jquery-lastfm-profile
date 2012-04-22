@@ -1,11 +1,9 @@
 /*
- * jQuery Last.fm Profile Plugin v0.9.1
+ * jQuery Last.fm Profile Plugin v0.9.2
  * http://terkel.jp/archives/2011/07/jquery-lastfm-profile-plugin/
  * 
- * Copyright (c) 2011 Takeru Suzuki
- * Dual licensed under the MIT and GPL licenses.
- * 
- * Requires: jQuery 1.4.3+
+ * Copyright (c) 2012 Takeru Suzuki - http://terkel.jp/
+ * Licensed under the MIT license - http://www.opensource.org/licenses/MIT
  */
 (function($) {
 
